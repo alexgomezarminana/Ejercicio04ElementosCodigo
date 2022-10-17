@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.ejercicio04elementoscodigo.configuraciones.Constantes;
 import com.example.ejercicio04elementoscodigo.databinding.ActivityAddPisoBinding;
 import com.example.ejercicio04elementoscodigo.modelos.Piso;
 
@@ -36,7 +37,7 @@ public class AddPisoActivity extends AppCompatActivity {
                 Piso piso = createPiso();
                 if (piso != null) {
                     Bundle bundle = new Bundle();
-                    bundle.putSerializable("PISO", piso);
+                    bundle.putSerializable(Constantes.PISO, piso);
                     Intent intent = new Intent();
                     intent.putExtras(bundle);
                     setResult(RESULT_OK, intent);
@@ -65,8 +66,12 @@ public class AddPisoActivity extends AppCompatActivity {
             return null;
         }
 
-        float valoracion = binding.rbValoracionAddPiso.getNumStars();
 
-        return new Piso(binding.txtDireccionAddPiso.getText().toString(), Integer.parseInt(binding.txtNumeroAddPiso.getText().toString()), binding.txtCiuadAddPiso.getText().toString(), binding.txtProvinciaAddPiso.getText().toString(), binding.txtCPAddPiso.getText().toString(), valoracion);
+        return new Piso(binding.txtDireccionAddPiso.getText().toString(),
+                Integer.parseInt(binding.txtNumeroAddPiso.getText().toString()),
+                binding.txtCiuadAddPiso.getText().toString(),
+                binding.txtProvinciaAddPiso.getText().toString(),
+                binding.txtCPAddPiso.getText().toString(),
+                binding.rbValoracionAddPiso.getRating());
     }
 }
