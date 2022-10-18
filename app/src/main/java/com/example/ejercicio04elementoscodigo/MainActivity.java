@@ -57,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
 
                 // TODO: lanzar la creación un nuevo objeto
                 launcerCrearPiso.launch(new Intent(MainActivity.this, AddPisoActivity.class));
+
             }
         });
     }
@@ -93,7 +94,28 @@ public class MainActivity extends AppCompatActivity {
                 }
         );
 
-
+        launcherModificarPiso = registerForActivityResult(
+                new ActivityResultContracts.StartActivityForResult(),
+                new ActivityResultCallback<ActivityResult>() {
+                    @Override
+                    public void onActivityResult(ActivityResult result) {
+                        if (result.getResultCode() == RESULT_OK) {
+                            if (result.getData() != null && result.getData().getExtras() != null && result.getData().getExtras().getSerializable(Constantes.PISO) != null) {
+                                Piso piso = (Piso) result.getData().getExtras().getSerializable(Constantes.PISO);
+                                int posicion = result.getData().getExtras().getInt(Constantes.POSICION);
+                                pisosList.set(posicion, piso);
+                                muestraImueblesContenido();
+                            }else {
+                                if ( result.getData().getExtras() != null){
+                                    int posicion = result.getData().getExtras().getInt(Constantes.POSICION);
+                                    pisosList.remove(posicion);
+                                    muestraImueblesContenido();
+                                }
+                            }
+                        }
+                    }
+                }
+        );
     }
 
     private void muestraImueblesContenido() {
@@ -116,6 +138,19 @@ public class MainActivity extends AppCompatActivity {
             lblProvincia.setText(piso.getProvinvia());
             rbValoracion.setRating(piso.getValoracionPiso());
 
+
+            int finalI = i;
+            pisoView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(MainActivity.this, EditPisoActivity.class);
+                    Bundle bundle = new Bundle();
+                    bundle.putSerializable(Constantes.PISO, piso);
+                    bundle.putInt(Constantes.POSICION, finalI);
+                    intent.putExtras(bundle);
+                    launcherModificarPiso.launch(intent);
+                }
+            });
 
             binding.contentMain.contenedor.addView(pisoView);
         }

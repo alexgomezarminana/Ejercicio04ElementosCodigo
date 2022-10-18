@@ -8,78 +8,85 @@
     tools:context=".EditPisoActivity">
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/txtDireccionEditPiso"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:ems="10"
+        android:hint="@string/direccion"
         android:inputType="textPersonName"
-        android:padding="10dp"
-        android:text="Name" />
+        android:padding="10dp" />
 
     <EditText
-        android:id="@+id/editTextNumber"
+        android:id="@+id/txtNumeroEditPiso"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:ems="10"
+        android:hint="@string/numero"
         android:inputType="number"
         android:padding="10dp" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName2"
+        android:id="@+id/txtCiudadEditPiso"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:ems="10"
+        android:hint="@string/ciudad"
         android:inputType="textPersonName"
-        android:padding="10dp"
-        android:text="Name" />
+        android:padding="10dp" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName3"
+        android:id="@+id/txtProvinciaEditPiso"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:ems="10"
+        android:hint="@string/provincia"
         android:inputType="textPersonName"
-        android:padding="10dp"
-        android:text="Name" />
+        android:padding="10dp" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName4"
+        android:id="@+id/txtCPEditPiso"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:ems="10"
+        android:hint="@string/cp"
         android:inputType="textPersonName"
-        android:padding="10dp"
-        android:text="Name" />
+        android:padding="10dp" />
 
     <RatingBar
-        android:id="@+id/ratingBar"
-        android:layout_width="match_parent"
+        android:id="@+id/rbValoracionEditPiso"
+        android:layout_width="254dp"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:layout_margin="5dp"
         android:padding="10dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp">
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/btnBorrarEditPiso"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="5dp"
             android:layout_weight="1"
-            android:text="Button" />
+            android:padding="5dp"
+            android:text="BORRAR" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/BtnEditarEditPiso"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="5dp"
             android:layout_weight="1"
-            android:text="Button" />
+            android:padding="5dp"
+            android:text="EDITAR" />
     </LinearLayout>
 </LinearLayout>
